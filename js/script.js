@@ -18,7 +18,7 @@ document.querySelector('#login-btn').onclick = () =>{
 window.onscroll = () =>{
    navbar.classList.remove('active');
    // searchForm.classList.remove('active');
-   loginForm.classList.remove('active');
+   // loginForm.classList.remove('active');
    // contactInfo.classList.remove('active');
 }
 
@@ -28,5 +28,25 @@ var swiper = new Swiper(".home-slider", {
    navigation: {
      nextEl: ".swiper-button-next",
      prevEl: ".swiper-button-prev",
+   },
+   autoplay: {
+      delay: 3000,
+   }
+});
+
+var swiper = new Swiper(".blogs-slider", {
+   loop:true,
+   grabCursor:true,
+   spaceBetween: 20,
+   breakpoints: {
+      640: {
+        slidesPerView: 1,
+      },
+      768: {
+        slidesPerView: 2,
+      },
+      991: {
+        slidesPerView: 3,
+      },
    },
 });

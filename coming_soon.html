@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megalith 2023 Coming Soon</title>
+    <style>
+       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+:root {
+  --yellow:#f5bf23;
+  --black:#111;
+  --white:#fff;
+  --light-color:#666;
+  --light-bg:#eee;
+  --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+  --border:.1rem solid rgba(0,0,0,.3);
+}
+        * {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
+}
+body{
+  
+  background-image:linear-gradient(to left, #fefefe00, rgb(255, 255, 254)), url(images/home-slide-2.jpeg)  ;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+   
+  
+}
+
+
+
+
+html::-webkit-scrollbar {
+  width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--yellow);
+}
+section {
+  padding: 5rem 10%;
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    top: 50%;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    top: 50%;
+    opacity: 0;
+  }
+}
+.header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  -webkit-box-shadow: var(--box-shadow);
+          box-shadow: var(--box-shadow);
+  padding: 1.5rem 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  z-index: 1000;
+  background: var(--white);
+}
+
+.left-header img{
+  vertical-align: middle;
+  width: 50px;
+}
+
+.header  {
+  font-size: 2.5rem;
+  color: var(--black);
+  text-transform: capitalize;
+}
+
+.header  span {
+  color: red;
+}
+
+.header .navbar a {
+  font-size: 2rem;
+  color: var(--black);
+  text-transform: capitalize;
+  margin: 0 1rem;
+}
+
+.header .navbar a:hover {
+  color: red;
+}
+
+
+
+
+.home  .content h3 {
+  font-size: 5rem;
+  color: var(--black);
+  text-transform: capitalize;
+  text-transform: uppercase;
+}
+
+.home .content p {
+  font-size:3rem;
+  color: var(--black);
+  line-height: 2;
+  
+  padding: 1rem 0;
+}
+
+
+    </style>
+</head>
+<body>
+    <header class="header">
+		<div class="left-header">
+			<img src="./images/megalogotheme.png">
+			Megalith<span>'23</span>
+        </div>
+		<nav class="navbar">
+			<a href="index.html">MIP website</a>
+        </nav>
+    </header>
+  
+    <section class=home >
+    <div class="content" >
+        <h3>Megalith 20<span style="color: red;">23</span></h3>
+        <p>India's Largest Civil Engineering Fest<br>
+        IIT Kharagpur</p>
+        <h3><span style="color: red;">Coming</span> Soon</h3>
+    </div>
+</section>
+
+</body>
+</html>
