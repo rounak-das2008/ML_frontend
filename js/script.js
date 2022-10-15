@@ -30,9 +30,11 @@ var swiper = new Swiper(".home-slider", {
      prevEl: ".swiper-button-prev",
    },
    autoplay: {
-      delay: 3000,
+      delay: 4500,
+      disableOnInteraction: false
    }
 });
+
 
 var swiper = new Swiper(".blogs-slider", {
    loop:true,
@@ -48,5 +50,9 @@ var swiper = new Swiper(".blogs-slider", {
       991: {
         slidesPerView: 3,
       },
+   },
+   navigation: {
+     nextEl: ".swiper-button-next",
+     prevEl: ".swiper-button-prev",
    },
 });

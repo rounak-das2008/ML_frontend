@@ -13,16 +13,16 @@
 }*/
 
 
-.container{
+.footer-container{
 	max-width: 1000px;
 	margin: auto;
 }
-.row{
+.footer-row{
 	display: flex;
 	flex-wrap: wrap;
 }
 .footer{
-	background-color: #24262b;
+	background-color: black;
 	padding: 70px 0;
 }
 .footer-col{
@@ -71,12 +71,16 @@
 	color: #ffffff;
 	padding-left: 8px;
 }
+.footer-col .social-links{
+	display: flex;
+	flex-direction: row;
+}
 .footer-col .social-links a{
-	display: inline-block;
+	/*display: inline-block;*/
 	height: 40px;
-	width: 40px;
+	width: 80px;
 	background-color: rgba(255,255,255,0.2);
-	margin-right:0 10px 10px 0;
+	margin:0 10px 10px 0;
 	text-align: center;
 	line-height: 40px;
 	border-radius: 50%;

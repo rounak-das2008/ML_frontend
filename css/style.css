@@ -72,7 +72,7 @@ body{
   display: inline-block;
   margin-top: 1rem;
   padding: 1rem 3rem;
-  background: var(--black);
+  background: darkred;
   color: var(--white);
   cursor: pointer;
   font-size: 1.7rem;
@@ -82,8 +82,8 @@ body{
 }
 
 .btn:hover {
-  background: darkred;
-  color: var(--white);
+  background: var(--white);
+  color: var(--black);
 }
 @-webkit-keyframes fadeIn {
   0% {
@@ -213,6 +213,8 @@ body{
 .home .slide .content {
   width: 50rem;
   position: relative;
+  /*added just now*/
+  z-index: 0;
 }
 
 .home .slide .content h3 {
@@ -244,7 +246,7 @@ body{
 
 .home .swiper-button-next:hover,
 .home .swiper-button-prev:hover {
-  background: red;
+  background: darkred;
 }
 
 .home .swiper-button-next::after,
@@ -257,6 +259,12 @@ body{
   right: 7rem;
 }
 
+.about{
+  background: black;
+}
+.about .heading{
+  color: var(--white);
+}
 .about .row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -268,17 +276,13 @@ body{
       flex-wrap: wrap;
   gap: 3rem;
 }
+
 .about .row .content {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 41rem;
           flex: 1 1 41rem;
 }
 
-.about .row .content h3 {
-  font-size: 3.5rem;
-  color: var(--black);
-  text-transform: capitalize;
-}
 
 .about .row .content p {
   font-size: 1.5rem;
@@ -339,31 +343,32 @@ body{
   min-height: 100vh;
   display: grid;
   place-content: center;
-  /*background: #aabbfb;*/
+  background: black;
 }
 
 .gallery {
-  --s: 150px; /* control the size */
-  --g: 10px;  /* control the gap */
+  --s: 200px; /* control the size */
+  --g: 80px;  /* control the gap */
   display: grid;
   margin: calc(var(--s) + var(--g));
+  /*background: black;*/
 }
 
 .gallery > img {
   grid-area: 1/1;
   width: var(--s);
-  aspect-ratio: 1.15;
+  aspect-ratio: 1.20;
   object-fit: cover;
   clip-path: polygon(25% 0%, 75% 0%, 100% 50%,75% 100%,25% 100%,0 50%);
   transform: translate(var(--_x,0),var(--_y,0)) scale(var(--_t,1));
   cursor: pointer;
-  filter: grayscale(80%);
+  /*filter: grayscale(80%);*/
   transition: .2s linear;
 }
 .gallery > img:hover {
   filter: grayscale(0);
   z-index: 1;
-  --_t: 1.2;
+  --_t: 1.1;
 }
 
 .gallery > img:nth-child(1) {--_y: calc(-100% - var(--g))}
@@ -378,13 +383,6 @@ body{
 .gallery > img:nth-child(6) {--_y: calc( 50% + .5*var(--g))}
 
 
-/*body {
-  margin: 0;
-  min-height: 100vh;
-  display: grid;
-  place-content: center;
-  background: #aabbfb;
-}*/
 
 .reviews .slide p {
   padding: 1.5rem;
@@ -417,21 +415,23 @@ body{
 }
 
 .blogs .slide:hover .image img {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
 }
 
 .blogs .slide .image {
-  height: 25rem;
-  width: 90%;
+  height: 25%;
+  width: 70%;
   /*overflow: hidden;*/
-  margin: 0 auto;
-  margin-bottom: -3rem;
+  margin: 5% auto;
+  margin-bottom: 0rem;
 }
 
 .blogs .slide .image img {
-  height: 100%;
-  width: 100%;
+  margin: 5% auto;
+  height: 50%;
+  width: 50%;
+  padding: 20% auto;
   -o-object-fit: cover;
      object-fit: cover;
   -webkit-transition: .2s linear;
@@ -440,7 +440,9 @@ body{
 
 .blogs .slide .content {
   padding: 2rem;
-  padding-top: 5rem;
+  /*width: 300px;*/
+  height: 172px;
+  /*padding-top: 1rem;*/
   background: var(--white);
   -webkit-box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.2);
@@ -454,11 +456,38 @@ body{
 
 .blogs .slide .content p {
   padding: 1rem 0;
+  vertical-align: center;
   font-size: 1.4rem;
   color: var(--light-color);
   line-height: 2;
 }
 
+.blogs .swiper-button-next,
+.blogs .swiper-button-prev {
+  top: 10rem;
+  /*bottom: 0;*/
+  /*left: 1rem;*/
+  /*right: -2.5rem;*/
+  /*height: 7rem;*/
+  width: 5rem;
+  line-height: 7rem;
+  background: var(--white);
+}
+
+.blogs .swiper-button-next:hover,
+.blogs .swiper-button-prev:hover {
+  background: darkred;
+}
+
+.blogs .swiper-button-next::after,
+.blogs .swiper-button-prev::after {
+  font-size: 2rem;
+  color: var(--black);
+}
+
+.blogs .swiper-button-prev {
+  right: rem;
+}
 
 @media (max-width: 1200px) {
   .header {
@@ -502,7 +531,7 @@ body{
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1113px) {
   .header .search-form {
     width: 90%;
   }
