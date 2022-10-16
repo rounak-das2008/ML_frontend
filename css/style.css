@@ -44,13 +44,11 @@ section {
 
 /*coming soon*/
 body{
-  background: url(../images/Ellora-caves.jpeg) no-repeat;
+  /*background: url(../images/Ellora-caves.jpeg) no-repeat;*/
   background: -webkit-gradient(linear, left top, right top, from(var(--white)), to(transparent));
   background: linear-gradient(90deg, var(--white), transparent);
-
-
-
 }
+
 .main h1{
   color: var(--light-color);
   font-size: 40px;
@@ -107,7 +105,7 @@ body{
   right: 0;
   -webkit-box-shadow: var(--box-shadow);
           box-shadow: var(--box-shadow);
-  padding: 0.5rem 1%;
+  padding: 0.6rem 0.7%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -260,7 +258,7 @@ body{
 }
 
 .about{
-  background: black;
+  background: #000;
 }
 .about .heading{
   color: var(--white);
@@ -286,7 +284,7 @@ body{
 
 .about .row .content p {
   font-size: 1.5rem;
-  color: var(--light-color);
+  color: white;
   line-height: 2;
   padding: 1rem 0;
 }
@@ -337,50 +335,6 @@ body{
   color: var(--light-color);
   line-height: 2;
 }
-
-.incentives{
-  margin: 0;
-  min-height: 100vh;
-  display: grid;
-  place-content: center;
-  background: black;
-}
-
-.gallery {
-  --s: 200px; /* control the size */
-  --g: 80px;  /* control the gap */
-  display: grid;
-  margin: calc(var(--s) + var(--g));
-  /*background: black;*/
-}
-
-.gallery > img {
-  grid-area: 1/1;
-  width: var(--s);
-  aspect-ratio: 1.20;
-  object-fit: cover;
-  clip-path: polygon(25% 0%, 75% 0%, 100% 50%,75% 100%,25% 100%,0 50%);
-  transform: translate(var(--_x,0),var(--_y,0)) scale(var(--_t,1));
-  cursor: pointer;
-  /*filter: grayscale(80%);*/
-  transition: .2s linear;
-}
-.gallery > img:hover {
-  filter: grayscale(0);
-  z-index: 1;
-  --_t: 1.1;
-}
-
-.gallery > img:nth-child(1) {--_y: calc(-100% - var(--g))}
-.gallery > img:nth-child(7) {--_y: calc( 100% + var(--g))}
-.gallery > img:nth-child(3),
-.gallery > img:nth-child(5) {--_x: calc(-75% - .87*var(--g))}
-.gallery > img:nth-child(4),
-.gallery > img:nth-child(6) {--_x: calc( 75% + .87*var(--g))}
-.gallery > img:nth-child(3),
-.gallery > img:nth-child(4) {--_y: calc(-50% - .5*var(--g))}
-.gallery > img:nth-child(5), 
-.gallery > img:nth-child(6) {--_y: calc( 50% + .5*var(--g))}
 
 
 
@@ -498,6 +452,7 @@ body{
   }
 }
 
+
 @media (max-width: 991px) {
   html {
     font-size: 55%;
@@ -554,6 +509,9 @@ body{
 @media (max-width: 450px) {
   html {
     font-size: 50%;
+  }
+  .about .row .video{
+    width: 60%;
   }
   .about .row .content h3 {
     font-size: 2.5rem;

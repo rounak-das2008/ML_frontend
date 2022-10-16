@@ -1,130 +1,156 @@
-"use strict";
+$(document).ready(function () {
+  const $cont = $('.cont');
+  const $slider = $('.slider');
+  const $nav = $('.nav');
+  const winW = $(window).width();
+  const animSpd = 750; // Change also in CSS
+  const distOfLetGo = winW * 0.2;
+  let curSlide = 1;
+  let animation = false;
+  let autoScrollVar = true;
+  let diff = 0;
 
-var activeIndex = 0;
-var limit = 0;
-var disabled = false;
-var $stage;
-var $controls;
-var canvas = false;
-var SPIN_FORWARD_CLASS = 'js-spin-fwd';
-var SPIN_BACKWARD_CLASS = 'js-spin-bwd';
-var DISABLE_TRANSITIONS_CLASS = 'js-transitions-disabled';
-var SPIN_DUR = 1000;
-var appendControls = function appendControls() {
-  for (var i = 0; i < limit; i++) {
-    $('.carousel__control').append("<a href=\"#\" data-index=\"".concat(i, "\"></a>"));
-  }
-  var height = $('.carousel__control').children().last().outerHeight();
-  $('.carousel__control').css('height', 30 + limit * height);
-  $controls = $('.carousel__control').children();
-  $controls.eq(activeIndex).addClass('active');
-};
-var setIndexes = function setIndexes() {
-  $('.spinner').children().each(function (i, el) {
-    $(el).attr('data-index', i);
-    limit++;
+  // Generating slides
+  let arrCities = ['Amsterdam', 'Rome', 'New—York', 'Singapore', 'Prague']; // Change number of slides in CSS also
+  let numOfCities = arrCities.length;
+  let arrCitiesDivided = [];
+  arrCities.map(city => {
+    let length = city.length;
+    let letters = Math.floor(length / 4);
+    let exp = new RegExp(".{1," + letters + "}", "g");
+    arrCitiesDivided.push(city.match(exp));
   });
-};
-var duplicateSpinner = function duplicateSpinner() {
-  var $el = $('.spinner').parent();
-  var html = $('.spinner').parent().html();
-  $el.append(html);
-  $('.spinner').last().addClass('spinner--right');
-  $('.spinner--right').removeClass('spinner--left');
-};
-var paintFaces = function paintFaces() {
-  $('.spinner__face').each(function (i, el) {
-    var $el = $(el);
-    var color = $(el).attr('data-bg');
-    $el.children().css('backgroundImage', "url(".concat(getBase64PixelByColor(color), ")"));
-  });
-};
-var getBase64PixelByColor = function getBase64PixelByColor(hex) {
-  if (!canvas) {
-    canvas = document.createElement('canvas');
-    canvas.height = 1;
-    canvas.width = 1;
-  }
-  if (canvas.getContext) {
-    var ctx = canvas.getContext('2d');
-    ctx.fillStyle = hex;
-    ctx.fillRect(0, 0, 1, 1);
-    return canvas.toDataURL();
-  }
-  return false;
-};
-var prepareDom = function prepareDom() {
-  setIndexes();
-  paintFaces();
-  duplicateSpinner();
-  appendControls();
-};
-var spin = function spin() {
-  var inc = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-  if (disabled) return;
-  if (!inc) return;
-  activeIndex += inc;
-  disabled = true;
-  if (activeIndex >= limit) {
-    activeIndex = 0;
-  }
-  if (activeIndex < 0) {
-    activeIndex = limit - 1;
-  }
-  var $activeEls = $('.spinner__face.js-active');
-  var $nextEls = $(".spinner__face[data-index=".concat(activeIndex, "]"));
-  $nextEls.addClass('js-next');
-  if (inc > 0) {
-    $stage.addClass(SPIN_FORWARD_CLASS);
-  } else {
-    $stage.addClass(SPIN_BACKWARD_CLASS);
-  }
-  $controls.removeClass('active');
-  $controls.eq(activeIndex).addClass('active');
-  setTimeout(function () {
-    spinCallback(inc);
-  }, SPIN_DUR, inc);
-};
-var spinCallback = function spinCallback(inc) {
-  $('.js-active').removeClass('js-active');
-  $('.js-next').removeClass('js-next').addClass('js-active');
-  $stage.addClass(DISABLE_TRANSITIONS_CLASS).removeClass(SPIN_FORWARD_CLASS).removeClass(SPIN_BACKWARD_CLASS);
-  $('.js-active').each(function (i, el) {
-    var $el = $(el);
-    $el.prependTo($el.parent());
-  });
-  setTimeout(function () {
-    $stage.removeClass(DISABLE_TRANSITIONS_CLASS);
-    disabled = false;
-  }, 100);
-};
-var attachListeners = function attachListeners() {
-  document.onkeyup = function (e) {
-    switch (e.keyCode) {
-      case 38:
-        spin(-1);
-        break;
-      case 40:
-        spin(1);
-        break;
+  let generateSlide = function (city) {
+    let frag1 = $(document.createDocumentFragment());
+    let frag2 = $(document.createDocumentFragment());
+    const numSlide = arrCities.indexOf(arrCities[city]) + 1;
+    const firstLetter = arrCitiesDivided[city][0].charAt(0);
+    const $slide = $(`<div data-target="${numSlide}" class="slide slide--${numSlide}">
+                            <div class="slide__darkbg slide--${numSlide}__darkbg"></div>
+                            <div class="slide__text-wrapper slide--${numSlide}__text-wrapper"></div>
+                        </div>`);
+    const letter = $(`<div class="slide__letter slide--${numSlide}__letter">
+                            ${firstLetter}
+                        </div>`);
+    for (let i = 0, length = arrCitiesDivided[city].length; i < length; i++) {
+      const text = $(`<div class="slide__text slide__text--${i + 1}">
+                                ${arrCitiesDivided[city][i]}
+                            </div>`);
+      frag1.append(text);
+    }
+    const navSlide = $(`<li data-target="${numSlide}" class="nav__slide nav__slide--${numSlide}"></li>`);
+    frag2.append(navSlide);
+    $nav.append(frag2);
+    $slide.find(`.slide--${numSlide}__text-wrapper`).append(letter).append(frag1);
+    $slider.append($slide);
+    if (arrCities[city].length <= 4) {
+      $('.slide--' + numSlide).find('.slide__text').css("font-size", "12vw");
     }
   };
-  $controls.on('click', function (e) {
-    e.preventDefault();
-    if (disabled) return;
-    var $el = $(e.target);
-    var toIndex = parseInt($el.attr('data-index'), 10);
-    spin(toIndex - activeIndex);
+  for (let i = 0, length = numOfCities; i < length; i++) {
+    generateSlide(i);
+  }
+  $('.nav__slide--1').addClass('nav-active');
+
+  // Navigation
+  function bullets(dir) {
+    $('.nav__slide--' + curSlide).removeClass('nav-active');
+    $('.nav__slide--' + dir).addClass('nav-active');
+  }
+  function timeout() {
+    animation = false;
+  }
+  function pagination(direction) {
+    animation = true;
+    diff = 0;
+    $slider.addClass('animation');
+    $slider.css({
+      'transform': 'translate3d(-' + (curSlide - direction) * 100 + '%, 0, 0)'
+    });
+    $slider.find('.slide__darkbg').css({
+      'transform': 'translate3d(' + (curSlide - direction) * 50 + '%, 0, 0)'
+    });
+    $slider.find('.slide__letter').css({
+      'transform': 'translate3d(0, 0, 0)'
+    });
+    $slider.find('.slide__text').css({
+      'transform': 'translate3d(0, 0, 0)'
+    });
+  }
+  function navigateRight() {
+    if (!autoScrollVar) return;
+    if (curSlide >= numOfCities) return;
+    pagination(0);
+    setTimeout(timeout, animSpd);
+    bullets(curSlide + 1);
+    curSlide++;
+  }
+  function navigateLeft() {
+    if (curSlide <= 1) return;
+    pagination(2);
+    setTimeout(timeout, animSpd);
+    bullets(curSlide - 1);
+    curSlide--;
+  }
+  function toDefault() {
+    pagination(1);
+    setTimeout(timeout, animSpd);
+  }
+
+  // Events
+  $(document).on('mousedown touchstart', '.slide', function (e) {
+    if (animation) return;
+    let target = +$(this).attr('data-target');
+    let startX = e.pageX || e.originalEvent.touches[0].pageX;
+    $slider.removeClass('animation');
+    $(document).on('mousemove touchmove', function (e) {
+      let x = e.pageX || e.originalEvent.touches[0].pageX;
+      diff = startX - x;
+      if (target === 1 && diff < 0 || target === numOfCities && diff > 0) return;
+      $slider.css({
+        'transform': 'translate3d(-' + ((curSlide - 1) * 100 + diff / 30) + '%, 0, 0)'
+      });
+      $slider.find('.slide__darkbg').css({
+        'transform': 'translate3d(' + ((curSlide - 1) * 50 + diff / 60) + '%, 0, 0)'
+      });
+      $slider.find('.slide__letter').css({
+        'transform': 'translate3d(' + diff / 60 + 'vw, 0, 0)'
+      });
+      $slider.find('.slide__text').css({
+        'transform': 'translate3d(' + diff / 15 + 'px, 0, 0)'
+      });
+    });
   });
-};
-var assignEls = function assignEls() {
-  $stage = $('.carousel__stage');
-};
-var init = function init() {
-  assignEls();
-  prepareDom();
-  attachListeners();
-};
-$(function () {
-  init();
+  $(document).on('mouseup touchend', function (e) {
+    $(document).off('mousemove touchmove');
+    if (animation) return;
+    if (diff >= distOfLetGo) {
+      navigateRight();
+    } else if (diff <= -distOfLetGo) {
+      navigateLeft();
+    } else {
+      toDefault();
+    }
+  });
+  $(document).on('click', '.nav__slide:not(.nav-active)', function () {
+    let target = +$(this).attr('data-target');
+    bullets(target);
+    curSlide = target;
+    pagination(1);
+  });
+  $(document).on('click', '.side-nav', function () {
+    let target = $(this).attr('data-target');
+    if (target === 'right') navigateRight();
+    if (target === 'left') navigateLeft();
+  });
+  $(document).on('keydown', function (e) {
+    if (e.which === 39) navigateRight();
+    if (e.which === 37) navigateLeft();
+  });
+  $(document).on('mousewheel DOMMouseScroll', function (e) {
+    if (animation) return;
+    let delta = e.originalEvent.wheelDelta;
+    if (delta > 0 || e.originalEvent.detail < 0) navigateLeft();
+    if (delta < 0 || e.originalEvent.detail > 0) navigateRight();
+  });
 });
