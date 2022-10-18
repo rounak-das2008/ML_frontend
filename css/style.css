@@ -259,13 +259,13 @@ body{
 }
 
 
-@media(max-width: 640px){
+@media(max-width: 800px){
   .pc_carousel{
     display: none;
   }
 }
 
-@media(min-width: 640px){
+@media(min-width: 800px){
   .mob_carousel{
     display: none;
   }
