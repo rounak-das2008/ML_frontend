@@ -1,10 +1,10 @@
-.carousel .cont {
+.mob_carousel .cont {
   position: relative;
   height: 100vh;
   overflow: hidden;
 }
 
-.carousel .slider {
+.mob_carousel .slider {
   position: relative;
   height: 100%;
   transform: translate3d(0, 0, 0);
@@ -15,39 +15,39 @@
       -ms-user-select: none;
           user-select: none;
 }
-.carousel .slider.animation {
+.mob_carousel .slider.animation {
   transition: transform 750ms ease-in-out;
 }
-.carousel .slider.animation .slide__darkbg {
+.mob_carousel .slider.animation .slide__darkbg {
   transition: transform 750ms ease-in-out;
 }
-.carousel .slider.animation .slide__text {
+.mob_carousel .slider.animation .slide__text {
   transition: transform 750ms ease-in-out;
 }
-.carousel .slider.animation .slide__letter {
+.mob_carousel .slider.animation .slide__letter {
   transition: transform 750ms ease-in-out;
 }
 
-.carousel .slide {
+.mob_carousel .slide {
   position: absolute;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
-.carousel .slide--1 {
+.mob_carousel .slide--1 {
   left: 0%;
 }
-.carousel .slide--2 {
+.mob_carousel .slide--2 {
   left: 100%;
 }
-.carousel .slide--3 {
+.mob_carousel .slide--3 {
   left: 200%;
 }
-.carousel .slide--4 {
+.mob_carousel .slide--4 {
   left: 300%;
 }
-.carousel .slide--5 {
+.mob_carousel .slide--5 {
   left: 400%;
 }
 .slide__darkbg {
@@ -60,7 +60,7 @@
   will-change: transform;
   z-index: 10;
 }
-.carousel .slide__text-wrapper {
+.mob_carousel .slide__text-wrapper {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -69,7 +69,7 @@
   height: 100%;
   z-index: 15;
 }
-.carousel .slide__letter {
+.mob_carousel .slide__letter {
   position: absolute;
   display: flex;
   align-items: center;
@@ -91,7 +91,7 @@
       -ms-user-select: none;
           user-select: none;
 }
-.carousel .slide__text {
+.mob_carousel .slide__text {
   font-size: 8vw;
   font-weight: 800;
   text-transform: uppercase;
@@ -104,13 +104,13 @@
       -ms-user-select: none;
           user-select: none;
 }
-.carousel .slide__text:nth-child(odd) {
+.mob_carousel .slide__text:nth-child(odd) {
   z-index: 2;
 }
-.carousel .slide__text:nth-child(even) {
+.mob_carousel .slide__text:nth-child(even) {
   z-index: 1;
 }
-.carousel .slide--1__darkbg {
+.mob_carousel .slide--1__darkbg {
   left: 0%;
   background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--1-min-min.jpg") center center no-repeat;
   background-size: cover;
@@ -118,7 +118,7 @@
   transform: translate3d(0, 0, 0);
   will-change: transform;
 }
-.carousel .slide--1__darkbg:after {
+.mob_carousel .slide--1__darkbg:after {
   content: "";
   position: absolute;
   top: 0;
@@ -127,12 +127,12 @@
   height: 100%;
   background-color: rgba(11, 15, 39, 0.83);
 }
-.carousel .slide--1__letter {
+.mob_carousel .slide--1__letter {
   background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--1-min-min.jpg") center center no-repeat;
   background-position: 0px center, 0px center;
   background-size: cover;
 }
-.carousel .slide--2__darkbg {
+.mob_carousel .slide--2__darkbg {
   left: -50%;
   background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--2-min-min.jpg") center center no-repeat;
   background-size: cover;
@@ -140,7 +140,7 @@
   transform: translate3d(0, 0, 0);
   will-change: transform;
 }
-.carousel .slide--2__darkbg:after {
+.mob_carousel .slide--2__darkbg:after {
   content: "";
   position: absolute;
   top: 0;
@@ -149,12 +149,12 @@
   height: 100%;
   background-color: rgba(11, 15, 39, 0.83);
 }
-.carousel .slide--2__letter {
+.mob_carousel .slide--2__letter {
   background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--2-min-min.jpg") center center no-repeat;
   background-position: 0px center, 0px center;
   background-size: cover;
 }
-.carousel .slide--3__darkbg {
+.mob_carousel .slide--3__darkbg {
   left: -100%;
   background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--3-min-min.jpg") center center no-repeat;
   background-size: cover;
@@ -162,7 +162,7 @@
   transform: translate3d(0, 0, 0);
   will-change: transform;
 }
-.carousel .slide--3__darkbg:after {
+.mob_carousel .slide--3__darkbg:after {
   content: "";
   position: absolute;
   top: 0;
@@ -171,12 +171,12 @@
   height: 100%;
   background-color: rgba(11, 15, 39, 0.83);
 }
-.carousel .slide--3__letter {
+.mob_carousel .slide--3__letter {
   background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--3-min-min.jpg") center center no-repeat;
   background-position: 0px center, 0px center;
   background-size: cover;
 }
-.carousel .slide--4__darkbg {
+.mob_carousel .slide--4__darkbg {
   left: -150%;
   background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--4-min-min.jpg") center center no-repeat;
   background-size: cover;
@@ -184,7 +184,7 @@
   transform: translate3d(0, 0, 0);
   will-change: transform;
 }
-.carousel .slide--4__darkbg:after {
+.mob_carousel .slide--4__darkbg:after {
   content: "";
   position: absolute;
   top: 0;
@@ -193,12 +193,12 @@
   height: 100%;
   background-color: rgba(11, 15, 39, 0.83);
 }
-.carousel .slide--4__letter {
+.mob_carousel .slide--4__letter {
   background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--4-min-min.jpg") center center no-repeat;
   background-position: 0px center, 0px center;
   background-size: cover;
 }
-.carousel .slide--5__darkbg {
+.mob_carousel .slide--5__darkbg {
   left: -200%;
   background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--5-min-min.jpg") center center no-repeat;
   background-size: cover;
@@ -206,7 +206,7 @@
   transform: translate3d(0, 0, 0);
   will-change: transform;
 }
-.carousel .slide--5__darkbg:after {
+.mob_carousel .slide--5__darkbg:after {
   content: "";
   position: absolute;
   top: 0;
@@ -215,7 +215,7 @@
   height: 100%;
   background-color: rgba(11, 15, 39, 0.83);
 }
-.carousel .slide--5__letter {
+.mob_carousel .slide--5__letter {
   background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--5-min-min.jpg") center center no-repeat;
   background-position: 0px center, 0px center;
   background-size: cover;
@@ -293,7 +293,7 @@
   background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #eed7ff 100%);
 }
 
-.carousel {
+.mob_carousel {
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
 }
@@ -304,7 +304,7 @@
   padding: 0;
 }*/
 
-.carousel {
+.mob_carousel {
   background-color: #000;
   overflow: hidden;
 }

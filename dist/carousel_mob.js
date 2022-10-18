@@ -1,53 +1,48 @@
+"use strict";
+
 $(document).ready(function () {
-  const $cont = $('.cont');
-  const $slider = $('.slider');
-  const $nav = $('.nav');
-  const winW = $(window).width();
-  const animSpd = 750; // Change also in CSS
-  const distOfLetGo = winW * 0.2;
-  let curSlide = 1;
-  let animation = false;
-  let autoScrollVar = true;
-  let diff = 0;
+  var $cont = $('.cont');
+  var $slider = $('.slider');
+  var $nav = $('.nav');
+  var winW = $(window).width();
+  var animSpd = 750; // Change also in CSS
+  var distOfLetGo = winW * 0.2;
+  var curSlide = 1;
+  var animation = false;
+  var autoScrollVar = true;
+  var diff = 0;
 
   // Generating slides
-  let arrCities = ['Amsterdam', 'Rome', 'New—York', 'Singapore', 'Prague']; // Change number of slides in CSS also
-  let numOfCities = arrCities.length;
-  let arrCitiesDivided = [];
-  arrCities.map(city => {
-    let length = city.length;
-    let letters = Math.floor(length / 4);
-    let exp = new RegExp(".{1," + letters + "}", "g");
+  var arrCities = ['Amsterdam', 'Rome', 'New—York', 'Singapore', 'Prague']; // Change number of slides in CSS also
+  var numOfCities = arrCities.length;
+  var arrCitiesDivided = [];
+  arrCities.map(function (city) {
+    var length = city.length;
+    var letters = Math.floor(length / 4);
+    var exp = new RegExp(".{1," + letters + "}", "g");
     arrCitiesDivided.push(city.match(exp));
   });
-  let generateSlide = function (city) {
-    let frag1 = $(document.createDocumentFragment());
-    let frag2 = $(document.createDocumentFragment());
-    const numSlide = arrCities.indexOf(arrCities[city]) + 1;
-    const firstLetter = arrCitiesDivided[city][0].charAt(0);
-    const $slide = $(`<div data-target="${numSlide}" class="slide slide--${numSlide}">
-                            <div class="slide__darkbg slide--${numSlide}__darkbg"></div>
-                            <div class="slide__text-wrapper slide--${numSlide}__text-wrapper"></div>
-                        </div>`);
-    const letter = $(`<div class="slide__letter slide--${numSlide}__letter">
-                            ${firstLetter}
-                        </div>`);
-    for (let i = 0, length = arrCitiesDivided[city].length; i < length; i++) {
-      const text = $(`<div class="slide__text slide__text--${i + 1}">
-                                ${arrCitiesDivided[city][i]}
-                            </div>`);
+  var generateSlide = function generateSlide(city) {
+    var frag1 = $(document.createDocumentFragment());
+    var frag2 = $(document.createDocumentFragment());
+    var numSlide = arrCities.indexOf(arrCities[city]) + 1;
+    var firstLetter = arrCitiesDivided[city][0].charAt(0);
+    var $slide = $("<div data-target=\"".concat(numSlide, "\" class=\"slide slide--").concat(numSlide, "\">\n                            <div class=\"slide__darkbg slide--").concat(numSlide, "__darkbg\"></div>\n                            <div class=\"slide__text-wrapper slide--").concat(numSlide, "__text-wrapper\"></div>\n                        </div>"));
+    var letter = $("<div class=\"slide__letter slide--".concat(numSlide, "__letter\">\n                            ").concat(firstLetter, "\n                        </div>"));
+    for (var i = 0, length = arrCitiesDivided[city].length; i < length; i++) {
+      var text = $("<div class=\"slide__text slide__text--".concat(i + 1, "\">\n                                ").concat(arrCitiesDivided[city][i], "\n                            </div>"));
       frag1.append(text);
     }
-    const navSlide = $(`<li data-target="${numSlide}" class="nav__slide nav__slide--${numSlide}"></li>`);
+    var navSlide = $("<li data-target=\"".concat(numSlide, "\" class=\"nav__slide nav__slide--").concat(numSlide, "\"></li>"));
     frag2.append(navSlide);
     $nav.append(frag2);
-    $slide.find(`.slide--${numSlide}__text-wrapper`).append(letter).append(frag1);
+    $slide.find(".slide--".concat(numSlide, "__text-wrapper")).append(letter).append(frag1);
     $slider.append($slide);
     if (arrCities[city].length <= 4) {
       $('.slide--' + numSlide).find('.slide__text').css("font-size", "12vw");
     }
   };
-  for (let i = 0, length = numOfCities; i < length; i++) {
+  for (var i = 0, length = numOfCities; i < length; i++) {
     generateSlide(i);
   }
   $('.nav__slide--1').addClass('nav-active');
@@ -100,11 +95,11 @@ $(document).ready(function () {
   // Events
   $(document).on('mousedown touchstart', '.slide', function (e) {
     if (animation) return;
-    let target = +$(this).attr('data-target');
-    let startX = e.pageX || e.originalEvent.touches[0].pageX;
+    var target = +$(this).attr('data-target');
+    var startX = e.pageX || e.originalEvent.touches[0].pageX;
     $slider.removeClass('animation');
     $(document).on('mousemove touchmove', function (e) {
-      let x = e.pageX || e.originalEvent.touches[0].pageX;
+      var x = e.pageX || e.originalEvent.touches[0].pageX;
       diff = startX - x;
       if (target === 1 && diff < 0 || target === numOfCities && diff > 0) return;
       $slider.css({
@@ -133,13 +128,13 @@ $(document).ready(function () {
     }
   });
   $(document).on('click', '.nav__slide:not(.nav-active)', function () {
-    let target = +$(this).attr('data-target');
+    var target = +$(this).attr('data-target');
     bullets(target);
     curSlide = target;
     pagination(1);
   });
   $(document).on('click', '.side-nav', function () {
-    let target = $(this).attr('data-target');
+    var target = $(this).attr('data-target');
     if (target === 'right') navigateRight();
     if (target === 'left') navigateLeft();
   });
@@ -149,7 +144,7 @@ $(document).ready(function () {
   });
   $(document).on('mousewheel DOMMouseScroll', function (e) {
     if (animation) return;
-    let delta = e.originalEvent.wheelDelta;
+    var delta = e.originalEvent.wheelDelta;
     if (delta > 0 || e.originalEvent.detail < 0) navigateLeft();
     if (delta < 0 || e.originalEvent.detail > 0) navigateRight();
   });
