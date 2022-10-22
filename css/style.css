@@ -38,8 +38,14 @@ html::-webkit-scrollbar-track {
 html::-webkit-scrollbar-thumb {
   background: darkred;
 }
-section {
-  padding: 5rem 10%;
+/*.section8,
+footer {
+  scroll-snap-align: start;
+}*/
+
+section{
+  padding: 4rem 4%;
+  width: 100%;
 }
 
 /*coming soon*/
@@ -47,6 +53,8 @@ body{
   /*background: url(../images/Ellora-caves.jpeg) no-repeat;*/
   background: -webkit-gradient(linear, left top, right top, from(var(--white)), to(transparent));
   background: linear-gradient(90deg, var(--white), transparent);
+  /*overflow-y: scroll;*/
+  /*scroll-snap-type: y mandatory;*/
 }
 
 .main h1{
@@ -99,10 +107,11 @@ body{
 
 .mip-header {
   position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  /*bottom: rem;*/
   -webkit-box-shadow: var(--box-shadow);
           box-shadow: var(--box-shadow);
   padding: 0.6rem 0.7%;
@@ -131,7 +140,8 @@ body{
   text-transform: capitalize;
 }
 
-.mip-header .logo span {
+.mip-header .logo span,
+.home h3 span{
   color: darkred;
 }
 
@@ -182,6 +192,7 @@ body{
 }
 
 .home {
+  /*padding-top: 50px;*/
   padding: 0;
 }
 
@@ -205,7 +216,7 @@ body{
   left: 0;
   height: 100%;
   width: 100%;
-  background: -webkit-gradient(linear, left top, right top, from(var(--white)), to(transparent));
+  /*background: -webkit-gradient(linear, left top, right top, from(var(--white)), to(transparent));*/
   background: linear-gradient(90deg, var(--white), transparent);
 }
 
@@ -218,6 +229,14 @@ body{
 
 .home .slide .content h3 {
   font-size: 6rem;
+  color: var(--black);
+  text-transform: capitalize;
+  text-transform: uppercase;
+}
+
+.home .slide .content h4{
+  font-size: 2rem;
+  line-height: 2;
   color: var(--black);
   text-transform: capitalize;
   text-transform: uppercase;
@@ -271,16 +290,13 @@ body{
   }
 }
 
-
-
-
-
-
 .about{
-  background: #000;
+  /*background: #000;*/
+  padding-bottom: 0;
+
 }
 .about .heading{
-  color: var(--white);
+  color: var(--black);
 }
 .about .row {
   display: -webkit-box;

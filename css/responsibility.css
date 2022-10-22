@@ -18,19 +18,19 @@
 
 .respn-box {
   position: relative;
-  width: 250px;
-  height: 250px;
+  width: 38em;
+  height: 34em;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 40px;
+  margin: 3rem;
   background: #060c21;
   /* Change */
   transition: 0.5s;
 }
 
 .respn-box:hover {
-  height: 400px;
+  height: 40rem;
 }
 
 .respn-box .imgBx {
@@ -96,10 +96,14 @@
 .respn-box .respn-content {
   position: absolute;
   bottom: 0;
-  left: 10px;
+  /*left: 10px;
   right: 10px;
   bottom: 10px;
-  height: 90px;
+  height: 90px;*/
+  left: 2rem;
+  right: 2rem;
+  bottom: 6.5rem;
+  height: 2rem;
   background: rgba(0, 0, 0, 0.04);
   display: flex;
   justify-content: center;
@@ -109,6 +113,7 @@
 }
 
 .respn-box:hover .respn-content {
+  /*padding: 2.5rem 0 2.5rem 0;*/
   opacity: 1;
 }
 
@@ -123,7 +128,7 @@
 }
 
 .respn-box .respn-content h2 span {
-  font-size: 14px;
+  font-size: 1.4rem;
   color: #fff;
   font-weight: 200;
   /* just one style 😐 */

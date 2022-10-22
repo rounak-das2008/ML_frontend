@@ -17,7 +17,7 @@ body {
   overflow: hidden;
   perspective: 50vw;
   perspective-origin: 50% 50%;
-  background-color: black;
+  /*background-color: black;*/
 }
 .carousel__control {
   position: absolute;
@@ -162,6 +162,7 @@ body {
 }
 .content__left h1 {
   position: absolute;
+  line-height: 0.7;
   top: 50%;
   margin-top: -3vw;
   text-align: center;
@@ -172,7 +173,7 @@ body {
   color: #fff;
   width: 100%;
   letter-spacing: 0.15em;
-  line-height: 0.6;
+  /*line-height: 0.6;*/
 }
 .content__left span {
   font-size: 1vw;
@@ -214,13 +215,13 @@ body {
   color: #fff;
 }
 [data-type="iceland"] .content__left {
-  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/215059/iceland.jpg");
+  background-image: url("../images/main_building.jpeg");
 }
 .spinner--right [data-type="iceland"] .content__left {
   background-image: none;
 }
 [data-type="china"] .content__left {
-  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/215059/china.jpg");
+  background-image: url("../images/mip_images/ml-3.jpeg");
 }
 .spinner--right [data-type="china"] .content__left {
   background-image: none;

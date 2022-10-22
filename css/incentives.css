@@ -5,7 +5,10 @@
   font-weight: 500;
   /*background-color: #BCAAA4;*/
   background-color: #eee;
+  /*overflow-y: hidden;*/
+
   -webkit-font-smoothing: antialiased;
+
 }
 
 /*.title {
@@ -32,7 +35,7 @@
 }
 
 .card-wrap {
-  margin: 10px;
+  margin: 3rem;
   transform: perspective(800px);
   transform-style: preserve-3d;
   cursor: pointer;
@@ -121,7 +124,7 @@
 
 .card-info h1 {
   font-family: "Playfair Display";
-  font-size: 36px;
+  font-size: 26px;
   font-weight: 700;
   text-shadow: rgba(0, 0, 0, 0.5) 0 10px 10px;
 }
