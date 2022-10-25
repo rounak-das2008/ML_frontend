@@ -14,20 +14,30 @@
 
 
 .footer-container{
-	max-width: 1000px;
-	margin: auto;
+	/*max-width: 1000px;*/
+	margin: 2rem;
+	/*display: flex;*/
 }
 .footer-row{
 	display: flex;
-	flex-wrap: wrap;
+	flex-direction: row;
+	width: 100%;
 }
+.footer-div{
+	width: 40%;
+	display: flex;
+	flex-direction: column;
+}
+
 .footer{
 	background-color: black;
-	padding: 70px 0;
+	padding: 50px 0;
 }
 .footer-col{
-	width: 25%;
-	padding: 0 120px;
+	flex-wrap: wrap;
+	/*display: inline-block;*/
+	width: 95%;
+	padding: 10px 28px;
 	/*text-align: center;*/
 }
 .footer-col ul{
@@ -77,8 +87,10 @@
 }
 .footer-col .social-links a{
 	/*display: inline-block;*/
-	height: 40px;
-	width: 80px;
+	padding-top: 10px;
+	font-size: 23px;
+	height: 60px;
+	width: 60px;
 	background-color: rgba(255,255,255,0.2);
 	margin:0 10px 10px 0;
 	text-align: center;
@@ -94,10 +106,9 @@
 
 }
 
-.incentives{
-	background-color: ;
+.footer-col .follow{
+	display: block;
 }
-
 
 /*@media(max-width:  767px){
 	.footer-col{
@@ -112,7 +123,23 @@
 		margin-bottom: 30px;
 	}
 }*/
+@media(max-width: 890px){
+	.footer-row{
+		flex-direction: column;
+	}
+	.contactus-wrapper{
+		width: 90vw;
+		margin: auto;
+	}
+	.footer-div{
+		flex-direction: row;
+		margin: auto;
+		width: 90vw;
+	}
+}
 
-
-
-
+@media(max-width:  650px){
+	.footer-div{
+		flex-direction: column;
+	}
+}

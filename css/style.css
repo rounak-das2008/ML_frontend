@@ -104,7 +104,20 @@ body{
     opacity: 0;
   }
 }
-
+.left{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+ 
+  
+  }
+  nav.navbar{
+    position: relative;
+    min-height: 50px;
+    margin-bottom: -22px;
+    border: 1px solid transparent;
+  }
 .mip-header {
   position: -webkit-sticky;
   position: fixed;
@@ -150,6 +163,7 @@ body{
   color: var(--black);
   text-transform: capitalize;
   margin: 0 2rem;
+ 
 }
 
 .mip-header .navbar a:hover {
@@ -221,14 +235,17 @@ body{
 }
 
 .home .slide .content {
-  width: 50rem;
+  margin: 6rem;
+  width: 48rem;
   position: relative;
   /*added just now*/
   z-index: 0;
 }
 
 .home .slide .content h3 {
+  marker-end: 2rem;
   font-size: 6rem;
+  margin: 1rem;
   color: var(--black);
   text-transform: capitalize;
   text-transform: uppercase;
@@ -236,6 +253,7 @@ body{
 
 .home .slide .content h4{
   font-size: 2rem;
+  margin: 2rem;
   line-height: 2;
   color: var(--black);
   text-transform: capitalize;
@@ -244,10 +262,11 @@ body{
 
 .home .slide .content p {
   font-size: 1.9rem;
+  margin: 2rem;
   /*font-weight: bold;*/
   color: var(--black);
   line-height: 2;
-  padding: 1rem 0;
+  padding-top: 35px;
 }
 
 .home .swiper-button-next,
@@ -292,7 +311,8 @@ body{
 
 .about{
   /*background: #000;*/
-  padding-bottom: 0;
+  padding-bottom: 0px;
+  padding-top: 0px;
 
 }
 .about .heading{

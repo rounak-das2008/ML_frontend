@@ -12,14 +12,14 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  min-height: 100vh;
+  /*min-height: 80vh;*/
   /*background: #060c21;*/
 }
 
 .respn-box {
   position: relative;
-  width: 38em;
-  height: 34em;
+  width: 350px;
+  height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;

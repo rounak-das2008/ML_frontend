@@ -147,7 +147,6 @@ body{
 
 .mip-header #menu-btn {
   display: none;
-}
   position: absolute;
   top: 120%;
   left: 50%;
@@ -261,13 +260,6 @@ body{
   background-color: #ffffff;
 
 }
-
-.incentives{
-  background-color: ;
-}
-
-
-
 @media (max-width: 1200px) {
   .mip-header {
     padding: 1.5rem 2rem;
