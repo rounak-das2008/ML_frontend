@@ -190,21 +190,26 @@ nav.navbar{
 
 .mip-header #menu-btn {
   display: none;
-}
-  position: absolute;
-  top: 120%;
-  left: 50%;
+
+  position: relative;
+  /*top: 120%;*/
+  left: 28%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  width: 40rem;
-  background: var(--white);
+  width: 5rem;
+  background: var(--light-bg);
   -webkit-box-shadow: var(--box-shadow);
           box-shadow: var(--box-shadow);
-  padding: 2rem;
+  /*padding: 2rem;*/
+  margin-right: 1rem;
   text-align: center;
   -webkit-animation: fadeIn .2s linear;
           animation: fadeIn .2s linear;
   display: none;
+}
+
+.mip-header #menu-btn:hover{
+  background: var(--black);
 }
 
 .home {
@@ -306,7 +311,10 @@ nav.navbar{
 }
 
 @media(min-width: 800px){
-  .mob_carousel{
+  /*.mob_carousel{
+    display: none;
+  }*/
+  .about{
     display: none;
   }
 }
@@ -315,7 +323,6 @@ nav.navbar{
   /*background: #000;*/
   padding-bottom: 0px;
   padding-top: 0px;
-
 }
 .about .heading{
   color: var(--black);

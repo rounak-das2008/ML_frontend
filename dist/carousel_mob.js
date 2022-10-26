@@ -13,7 +13,9 @@ $(document).ready(function () {
   var diff = 0;
 
   // Generating slides
-  var arrCities = ['Amsterdam', 'Rome', 'New—York', 'Singapore', 'Prague']; // Change number of slides in CSS also
+  // var arrCities = ['Amsterdam', 'Rome', 'New—York', 'Singapore', 'Prague'];
+  var arrCities = ['About-Us', 'Megalith 23', 'Brochure'] 
+  // Change number of slides in CSS also
   var numOfCities = arrCities.length;
   var arrCitiesDivided = [];
   arrCities.map(function (city) {

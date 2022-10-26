@@ -1,3 +1,23 @@
+.about{
+  margin: 0;
+  padding: 0;
+}
+.mob_carousel {
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+.mob_carousel {
+  /*background-color: darkblue;*/
+  overflow: hidden;
+}
+.mob_carousel-content{
+  padding: 4rem 4%;
+  width: 100%;
+  font-size: 16px;
+  background-image: url('../images/monum-10.jpeg');
+  background: linear-gradient(90deg, var(--white), transparent);
+}
 .mob_carousel .cont {
   position: relative;
   height: 100vh;
@@ -112,7 +132,7 @@
 }
 .mob_carousel .slide--1__darkbg {
   left: 0%;
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--1-min-min.jpg") center center no-repeat;
+  background: url("../images/main_building.jpeg") center center no-repeat;
   background-size: cover;
   background-position: 0px center, 0px center;
   transform: translate3d(0, 0, 0);
@@ -128,13 +148,13 @@
   background-color: rgba(11, 15, 39, 0.83);
 }
 .mob_carousel .slide--1__letter {
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--1-min-min.jpg") center center no-repeat;
+  background: url("../images/main_building.jpeg") center center no-repeat;
   background-position: 0px center, 0px center;
   background-size: cover;
 }
 .mob_carousel .slide--2__darkbg {
   left: -50%;
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--2-min-min.jpg") center center no-repeat;
+  background: url("../images/mip_images/ml-3.jpeg") center center no-repeat;
   background-size: cover;
   background-position: 0px center, 0px center;
   transform: translate3d(0, 0, 0);
@@ -150,13 +170,13 @@
   background-color: rgba(11, 15, 39, 0.83);
 }
 .mob_carousel .slide--2__letter {
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--2-min-min.jpg") center center no-repeat;
+  background: url("../images/mip_images/ml-3.jpeg") center center no-repeat;
   background-position: 0px center, 0px center;
   background-size: cover;
 }
 .mob_carousel .slide--3__darkbg {
   left: -100%;
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--3-min-min.jpg") center center no-repeat;
+  background: url("../images/mip_images/ml-1.jpeg") center center no-repeat;
   background-size: cover;
   background-position: 0px center, 0px center;
   transform: translate3d(0, 0, 0);
@@ -172,51 +192,7 @@
   background-color: rgba(11, 15, 39, 0.83);
 }
 .mob_carousel .slide--3__letter {
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--3-min-min.jpg") center center no-repeat;
-  background-position: 0px center, 0px center;
-  background-size: cover;
-}
-.mob_carousel .slide--4__darkbg {
-  left: -150%;
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--4-min-min.jpg") center center no-repeat;
-  background-size: cover;
-  background-position: 0px center, 0px center;
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
-}
-.mob_carousel .slide--4__darkbg:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(11, 15, 39, 0.83);
-}
-.mob_carousel .slide--4__letter {
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--4-min-min.jpg") center center no-repeat;
-  background-position: 0px center, 0px center;
-  background-size: cover;
-}
-.mob_carousel .slide--5__darkbg {
-  left: -200%;
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--5-min-min.jpg") center center no-repeat;
-  background-size: cover;
-  background-position: 0px center, 0px center;
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
-}
-.mob_carousel .slide--5__darkbg:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(11, 15, 39, 0.83);
-}
-.mob_carousel .slide--5__letter {
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/city--5-min-min.jpg") center center no-repeat;
+  background: url("../images/mip_images/ml-1.jpeg") center center no-repeat;
   background-position: 0px center, 0px center;
   background-size: cover;
 }
@@ -291,20 +267,4 @@
 .side-nav--left {
   left: 0;
   background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #eed7ff 100%);
-}
-
-.mob_carousel {
-  box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
-}
-
-/**, *:before, *:after {
-  box-sizing: inherit;
-  margin: 0;
-  padding: 0;
-}*/
-
-.mob_carousel {
-  background-color: #000;
-  overflow: hidden;
 }

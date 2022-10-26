@@ -34,6 +34,7 @@
 	padding: 50px 0;
 }
 .footer-col{
+	margin-top: 2rem;
 	flex-wrap: wrap;
 	/*display: inline-block;*/
 	width: 95%;
