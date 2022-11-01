@@ -3,7 +3,6 @@ let loginForm = document.querySelector('.mip-header .login-form');
 
 document.querySelector('#menu-btn').onclick = () =>{
    navbar.classList.toggle('active');
-   loginForm.classList.remove('active');
 };
 
 document.querySelector('#login-btn').onclick = () =>{
